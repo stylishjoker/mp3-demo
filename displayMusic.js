@@ -92,26 +92,32 @@ const displaySongs = () => {
 };
 
 const handleOption = () => {
-  const optionSelected = true;
+  const heartSelected = true;
+  const micSelected = true;
   const mouseBlock = $$(".blockSong");
   if (mouseBlock) {
     Array.from(mouseBlock).forEach((element) => {
       // onMouse
       element.onmouseover = () => {
-        const main = element.querySelector(".block_react")
+        const main = element.querySelector(".block_react");
         main.style.display = "block";
       };
       element.onmouseout = () => {
-        const main = element.querySelector(".block_react")
+        const main = element.querySelector(".block_react");
         main.style.display = "none";
       };
 
       // option selected
-      element.onclick = ()=>{
-        return !optionSelected
-      }
+      const reactSelected = element.querySelector(".block_react");
+      const reactElements = reactSelected.querySelectorAll("i");
+      Array.from(reactElements).forEach((element) => {
+        element.onclick = () => {
+          // micSelected = false;
+          // heartSelected = false;
+          console.log(micSelected);
+        };
+      });
     });
-    console.log(optionSelected)
   }
 };
 
