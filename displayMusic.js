@@ -78,18 +78,43 @@ const displaySongs = () => {
   blockSongs.innerHTML = HTMLsongs.join("");
   main_element.appendChild(blockSongs);
   const optionElement = $$(".blockSong");
-  const createOption = document.createElement("div");
-  const HtmlOption = reactions.map((element) => {
-    return `
-      <a href = "${element.link}">${element.icon}</a>
-    `;
-  });
-  Array.from(optionElement).forEach((element) => {
-    createOption.classList.add("blockSong_react");
+  Array.from(optionElement).forEach((element, index) => {
+    const createOption = document.createElement("div");
+    createOption.classList.add("block_react");
+    const HtmlOption = reactions.map((element) => {
+      return `
+        <a href = "${element.link}">${element.icon}</a>
+      `;
+    });
     createOption.innerHTML = HtmlOption.join("");
     element.appendChild(createOption);
-    console.log(element);
   });
-  var lengthSong = optionElement.length;
 };
+
+const handleOption = () => {
+  const optionSelected = true;
+  const mouseBlock = $$(".blockSong");
+  if (mouseBlock) {
+    Array.from(mouseBlock).forEach((element) => {
+      // onMouse
+      element.onmouseover = () => {
+        const main = element.querySelector(".block_react")
+        main.style.display = "block";
+      };
+      element.onmouseout = () => {
+        const main = element.querySelector(".block_react")
+        main.style.display = "none";
+      };
+
+      // option selected
+      element.onclick = ()=>{
+        return !optionSelected
+      }
+    });
+    console.log(optionSelected)
+  }
+};
+
+// call function
 displaySongs();
+handleOption();

@@ -6,6 +6,7 @@
   width: 20%;
   position: fixed;
   background: rgba(255, 255, 255, 0.05);
+  height: 100%;
 }
 #blockRight {
   position: fixed;
@@ -513,25 +514,26 @@
 .blockSong {
   display: flex;
   padding: 10px 20px;
-  border-bottom:1px solid #333 ;
+  border-bottom: 1px solid #333;
   background-color: transparent;
   border-radius: 5px;
   justify-content: space-between;
   align-items: center;
-  cursor:default;
+  cursor: default;
+  position: relative;
 }
-.blockSong_main{
+.blockSong_main {
   align-items: center;
   display: flex;
 }
-.blockSong:hover{
+.blockSong:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 .blockSong__id {
   margin-right: 20px;
   font-size: 25px;
   font-weight: 900;
-  color: rgba(74,144,226,0);
+  color: rgba(74, 144, 226, 0);
   -webkit-text-stroke: 1px #4a90e2;
 }
 .blockSong__info-single {
@@ -541,13 +543,21 @@
 .blockSong__info-single:hover {
   text-decoration: underline;
 }
-.blockSong_tittle>a{
+.blockSong_tittle > a {
   text-decoration: underline;
   font-size: 12px;
   color: #ffffff6e;
 }
-.blockSong_tittle>a:hover{
+.blockSong_tittle > a:hover {
   text-decoration: underline;
   font-size: 12px;
   color: #fff;
+}
+.block_react {
+  position: absolute;
+  right: 15%;
+  display: none;
+}
+.block_react i {
+  margin-right: 20px;
 }
